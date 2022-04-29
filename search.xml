@@ -4,6 +4,48 @@
   
     
     <entry>
+      <title>Hexo—Butterfly主题使用技巧</title>
+      <link href="/2022/04/29/Hexo%E2%80%94Butterfly%E6%90%AD%E5%BB%BA/"/>
+      <url>/2022/04/29/Hexo%E2%80%94Butterfly%E6%90%AD%E5%BB%BA/</url>
+      
+        <content type="html"><![CDATA[<h1 id="搭建博客"><a href="#搭建博客" class="headerlink" title="搭建博客"></a>搭建博客</h1><h2 id="安装nodejs："><a href="#安装nodejs：" class="headerlink" title="安装nodejs："></a>安装nodejs：</h2><blockquote><p>下载地址： <a href="http://nodejs.cn/download/">http://nodejs.cn/download/</a></p></blockquote><p><img src="C:\Users\Gdycaz\AppData\Roaming\Typora\typora-user-images\image-20220429105633781.png"></p><p><img src="C:\Users\Gdycaz\AppData\Roaming\Typora\typora-user-images\image-20220429105659445.png"></p><p><img src="C:\Users\Gdycaz\AppData\Roaming\Typora\typora-user-images\image-20220429105715059.png"></p><h2 id="安装Git"><a href="#安装Git" class="headerlink" title="安装Git"></a>安装Git</h2><blockquote><p>下载地址：<a href="https://git-scm.com/">https://git-scm.com/</a></p></blockquote><p><img src="C:\Users\Gdycaz\AppData\Roaming\Typora\typora-user-images\image-20220429105934022.png"></p><p>接下来一直点击next即可</p><h2 id="验证是否安装"><a href="#验证是否安装" class="headerlink" title="验证是否安装"></a>验证是否安装</h2><figure class="highlight c"><table><tr><td class="code"><pre><span class="line">$ node -v</span><br><span class="line">$ npm -v</span><br></pre></td></tr></table></figure><p>分别输出版本号即为安装成功</p><h2 id="安装cnpm"><a href="#安装cnpm" class="headerlink" title="安装cnpm"></a>安装cnpm</h2><p>执行：<code>$ npm install -g cnpm --registry=https://registry.npm.taobao.org</code></p><p>检验是否安装：<code>cnpm -v</code>,输出版本号即为安装成功</p><h2 id="安装hexo"><a href="#安装hexo" class="headerlink" title="安装hexo"></a>安装hexo</h2><p><code>$ cnpm install hexo-cli -g</code></p><h2 id="初始化博客"><a href="#初始化博客" class="headerlink" title="初始化博客"></a>初始化博客</h2><p>执行：<code>hexo Init + [文件名]</code></p><p>在初始化遇到<code>Install dependencies</code>时，<code>ctrl + c</code>结束命令</p><p>进入<strong>博客根目录</strong>执行<code>$ cnpm install</code>,完成初始化</p><h1 id="部署博客"><a href="#部署博客" class="headerlink" title="部署博客"></a>部署博客</h1><h2 id="部署博客到github"><a href="#部署博客到github" class="headerlink" title="部署博客到github"></a>部署博客到github</h2><blockquote><p>参考：<a href="https://www.cnblogs.com/huanhao/p/hexobase.html#github%E9%83%A8%E7%BD%B2">https://www.cnblogs.com/huanhao/p/hexobase.html#github%E9%83%A8%E7%BD%B2</a></p></blockquote><ol><li><p>创建github仓库</p><p><strong>仓库名必须是用户名 + .github.io</strong></p><p><img src="C:\Users\Gdycaz\AppData\Roaming\Typora\typora-user-images\image-20220429112334988.png" alt="image-20220429112334988"></p><ol start="2"><li><p>生成gitH密钥</p><p>执行<code>$ ssh-keygen -t rsa -C “gdycaz@gdycaz.com“</code>后，一直点击回车</p><p>然后执行<code>cat ~/.ssh/id_rsa.pub</code>,输出密钥。</p><p>复制密钥，然后点击头像，点击Settings – SSH and GPG keys – New SSH Key</p><p>在key处复制密钥</p><p><img src="C:\Users\Gdycaz\AppData\Roaming\Typora\typora-user-images\image-20220429113039315.png"></p><ol start="3"><li><p>执行<code>$  ssh -T git@github.com</code></p></li><li><p>复制博客项目的SHH链接</p><p>在<strong>站点配置文件</strong>中，修改deploy信息</p><figure class="highlight c"><table><tr><td class="code"><pre><span class="line">deploy:</span><br><span class="line">  type: git</span><br><span class="line">  repo: 你复制的SHH地址</span><br><span class="line">  branch: main</span><br></pre></td></tr></table></figure></li><li><p>安装上传插件 <code>cnpm install hexo-deployer-git --save</code></p><figure class="highlight c"><table><tr><td class="code"><pre><span class="line">$ git config --global user.name <span class="string">&quot;Gdyaz&quot;</span></span><br><span class="line">$ git config --global user.email <span class="string">&quot;Gdycaz@163.com&quot;</span></span><br></pre></td></tr></table></figure></li><li><p>然后可以上传了<code>hexo g -d</code></p></li><li><p>在项目settings中，Pages中</p><p>勾选mian，得到自己的博客网站</p><p><img src="C:\Users\Gdycaz\AppData\Roaming\Typora\typora-user-images\image-20220429113747645.png"></p></li></ol></li></ol><h1 id="博客基本操作"><a href="#博客基本操作" class="headerlink" title="博客基本操作"></a>博客基本操作</h1></li></ol><figure class="highlight c"><table><tr><td class="code"><pre><span class="line">$ hexo s<span class="comment">//博客本地预览</span></span><br><span class="line">$ heox clean<span class="comment">//清除博客本地缓存</span></span><br><span class="line">$ hexo g<span class="comment">//博客生成本地文件</span></span><br><span class="line">$ hexo d<span class="comment">//将博客部署到github</span></span><br></pre></td></tr></table></figure>]]></content>
+      
+      
+      
+        <tags>
+            
+            <tag> Hexo </tag>
+            
+            <tag> Butterfly </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>关于AD—PCB规则设置</title>
+      <link href="/2022/04/29/%E5%85%B3%E4%BA%8EAD%E2%80%94PCB%E8%A7%84%E5%88%99%E8%AE%BE%E7%BD%AE/"/>
+      <url>/2022/04/29/%E5%85%B3%E4%BA%8EAD%E2%80%94PCB%E8%A7%84%E5%88%99%E8%AE%BE%E7%BD%AE/</url>
+      
+        <content type="html"><![CDATA[<h1 id="嘉立创PCB规则"><a href="#嘉立创PCB规则" class="headerlink" title="嘉立创PCB规则"></a>嘉立创PCB规则</h1><h2 id="孔径要求"><a href="#孔径要求" class="headerlink" title="孔径要求"></a>孔径要求</h2><p><img src="C:\Users\Gdycaz\AppData\Roaming\Typora\typora-user-images\image-20220429103722536.png"></p><h3 id="过控"><a href="#过控" class="headerlink" title="过控"></a>过控</h3><p>单双层板最小过控：内径0.3mm/外径0.5mm<br>四六层板最小过控：内径0.2mm/外径0.45mm</p><h3 id="插件孔"><a href="#插件孔" class="headerlink" title="插件孔"></a>插件孔</h3><p>最小孔为0.5mm</p><h2 id="线路制作"><a href="#线路制作" class="headerlink" title="线路制作"></a>线路制作</h2><p><img src="C:\Users\Gdycaz\AppData\Roaming\Typora\typora-user-images\image-20220429103812498.png"></p><p><img src="C:\Users\Gdycaz\AppData\Roaming\Typora\typora-user-images\image-20220429103829995.png"></p><h3 id="走线"><a href="#走线" class="headerlink" title="走线"></a>走线</h3><p>最小6mil</p><h3 id="线隙"><a href="#线隙" class="headerlink" title="线隙"></a>线隙</h3><p>单双层板最小线宽线隙：0.127mm<br>四六层板最小线宽线隙：0.09mm<br>最小焊盘边距离线边: 0.127mm</p><h3 id="过控-1"><a href="#过控-1" class="headerlink" title="过控"></a>过控</h3><p>内层过孔边到线路铜面/导线间隙0.3mm以上</p><h2 id="阻焊制作"><a href="#阻焊制作" class="headerlink" title="阻焊制作"></a>阻焊制作</h2><p><img src="C:\Users\Gdycaz\AppData\Roaming\Typora\typora-user-images\image-20220429103859339.png"></p><h2 id="字符制作"><a href="#字符制作" class="headerlink" title="字符制作"></a>字符制作</h2><p><img src="C:\Users\Gdycaz\AppData\Roaming\Typora\typora-user-images\image-20220429103920716.png"></p><p><img src="C:\Users\Gdycaz\AppData\Roaming\Typora\typora-user-images\image-20220429103950183.png"></p><h3 id="字体"><a href="#字体" class="headerlink" title="字体"></a>字体</h3><p>丝印字符：线宽不能小于0.15mm，高度不能小于1mm。<br>镂空字体：线宽不能小于0.2mm，高度不能小于1.5mm。</p><h3 id="字符间距"><a href="#字符间距" class="headerlink" title="字符间距"></a>字符间距</h3><p>字符距离焊盘需不小于0.15mm，字符间隙大于0.15mm。</p><h1 id="AD20-PCB规则"><a href="#AD20-PCB规则" class="headerlink" title="AD20 PCB规则"></a>AD20 PCB规则</h1><h2 id="线路"><a href="#线路" class="headerlink" title="线路"></a>线路</h2><h3 id="走线间距"><a href="#走线间距" class="headerlink" title="走线间距"></a>走线间距</h3><p><img src="C:\Users\Gdycaz\AppData\Roaming\Typora\typora-user-images\image-20220429104005749.png"></p><h3 id="不允许短路"><a href="#不允许短路" class="headerlink" title="不允许短路"></a>不允许短路</h3><p><img src="C:\Users\Gdycaz\AppData\Roaming\Typora\typora-user-images\image-20220429104019830.png"></p><h3 id="线宽"><a href="#线宽" class="headerlink" title="线宽"></a>线宽</h3><p><img src="C:\Users\Gdycaz\AppData\Roaming\Typora\typora-user-images\image-20220429104036500.png"></p><h3 id="拓扑器件连接关系"><a href="#拓扑器件连接关系" class="headerlink" title="拓扑器件连接关系"></a>拓扑器件连接关系</h3><p><img src="C:\Users\Gdycaz\AppData\Roaming\Typora\typora-user-images\image-20220429104047423.png" alt="最短连接"><br>【最短连接】</p><h2 id="孔"><a href="#孔" class="headerlink" title="孔"></a>孔</h2><h3 id="过孔"><a href="#过孔" class="headerlink" title="过孔"></a>过孔</h3><p><img src="C:\Users\Gdycaz\AppData\Roaming\Typora\typora-user-images\image-20220429104107155.png"></p><h3 id="打孔"><a href="#打孔" class="headerlink" title="打孔"></a>打孔</h3><p><img src="C:\Users\Gdycaz\AppData\Roaming\Typora\typora-user-images\image-20220429104118134.png"></p><h3 id="孔与孔间距"><a href="#孔与孔间距" class="headerlink" title="孔与孔间距"></a>孔与孔间距</h3><p><img src="C:\Users\Gdycaz\AppData\Roaming\Typora\typora-user-images\image-20220429104209876.png"></p><h2 id="其他间距"><a href="#其他间距" class="headerlink" title="其他间距"></a>其他间距</h2><p><img src="C:\Users\Gdycaz\AppData\Roaming\Typora\typora-user-images\image-20220429104339969.png"></p><p><img src="C:\Users\Gdycaz\AppData\Roaming\Typora\typora-user-images\image-20220429104352626.png"></p><p><img src="C:\Users\Gdycaz\AppData\Roaming\Typora\typora-user-images\image-20220429104404495.png"></p>]]></content>
+      
+      
+      
+        <tags>
+            
+            <tag> AD </tag>
+            
+            <tag> PCB规则 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>MarkDown使用技巧</title>
       <link href="/2022/04/27/MarkDown%E4%BD%BF%E7%94%A8%E6%8A%80%E5%B7%A7/"/>
       <url>/2022/04/27/MarkDown%E4%BD%BF%E7%94%A8%E6%8A%80%E5%B7%A7/</url>
@@ -36,19 +78,6 @@
             <tag> HEXO </tag>
             
         </tags>
-      
-    </entry>
-    
-    
-    
-    <entry>
-      <title>Hello World</title>
-      <link href="/2022/04/27/hello-world/"/>
-      <url>/2022/04/27/hello-world/</url>
-      
-        <content type="html"><![CDATA[<p>Welcome to <a href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p><h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo new <span class="string">&quot;My New Post&quot;</span></span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/writing.html">Writing</a></p><h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/server.html">Server</a></p><h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/generating.html">Generating</a></p><h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>]]></content>
-      
-      
       
     </entry>
     

@@ -4,6 +4,25 @@
   
     
     <entry>
+      <title>器件记录</title>
+      <link href="/2022/04/29/%E5%99%A8%E4%BB%B6%E8%AE%B0%E5%BD%95/"/>
+      <url>/2022/04/29/%E5%99%A8%E4%BB%B6%E8%AE%B0%E5%BD%95/</url>
+      
+        <content type="html"><![CDATA[<h1 id="二极管记录"><a href="#二极管记录" class="headerlink" title="二极管记录"></a>二极管记录</h1><h2 id="SMBJ瞬变抑制二极管"><a href="#SMBJ瞬变抑制二极管" class="headerlink" title="SMBJ瞬变抑制二极管"></a>SMBJ瞬变抑制二极管</h2><h3 id="单双向之分"><a href="#单双向之分" class="headerlink" title="单双向之分"></a>单双向之分</h3><p>SMBJ-A：单向</p><p>SMBJ-CA：双向。</p><h3 id="极性之分和外观标志"><a href="#极性之分和外观标志" class="headerlink" title="极性之分和外观标志"></a>极性之分和外观标志</h3><p>SMBJ-A：  有极性。有细色环端，接的是正极。</p><p>SMBJ-CA：没极性。标志中间有两道环，或者没有任何标志。</p><h3 id="用途"><a href="#用途" class="headerlink" title="用途"></a>用途</h3><p>用于浪涌与静电保护应用</p><h3 id="选型"><a href="#选型" class="headerlink" title="选型"></a>选型</h3><p>VRWM ≥1.1 UM</p><p>直流：UM = 直流电源</p><p>交流：UM=1.414Uac,如，对于220V的交流电，其UM=1.414*220=311（V）</p><p><img src="C:\Users\Gdycaz\AppData\Roaming\Typora\typora-user-images\image-20220429175925816.png"></p><p><img src="C:\Users\Gdycaz\AppData\Roaming\Typora\typora-user-images\image-20220429175945026.png"></p><p>例子：智能车驱动电路中，12V电路因电机产生的反向电压，有可能产生24V电压，所以UM = 1.1*24 = 26.4.</p><p>SMBJ28A的VRWM = 28 &gt;UM ,所以选择SMBJ28A。</p>]]></content>
+      
+      
+      
+        <tags>
+            
+            <tag> 器件 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>Hexo—Butterfly主题使用技巧</title>
       <link href="/2022/04/29/Hexo%E2%80%94Butterfly%E6%90%AD%E5%BB%BA/"/>
       <url>/2022/04/29/Hexo%E2%80%94Butterfly%E6%90%AD%E5%BB%BA/</url>

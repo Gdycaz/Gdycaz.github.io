@@ -1,4 +1,15 @@
 /*主页背景，渐变色*/
+
+#web_bg {
+  /* 背景图像的地址（url括号里）  */
+  background: url(https://cdn.jsdelivr.net/gh/Gdycaz/PicGo/img/Mahina2_4k.jpg);
+  /* 背景图像不重复 */
+  background-repeat: no-repeat;
+  /* 背景图像大小 */
+  background-size: cover;
+}
+
+/*渐变色
 #web_bg {
   background: -webkit-linear-gradient(
     0deg,
@@ -56,6 +67,7 @@
     rgba(109, 186, 130, 0.1) 100%
   );
 }
+*\
 
 /*页脚背景：透明色*/
 #footer {
@@ -64,10 +76,34 @@
 
 /*页脚文字颜色*/
 #footer-wrap{
-	color: #e91e63;
+	color: #000000;
 }
 
 /*页脚blog链接颜色*/
 #footer-wrap a {
-    color: #ff5722;
+    color: #000000;
+}
+
+/* 头图透明 */
+#page-header{
+  background: transparent!important;
+}
+/*top-img黑色透明玻璃效果移除，不建议加，除非你执着于完全一图流或者背景图对比色明显 */
+#page-header.post-bg:before {
+  background-color: transparent!important;
+}
+
+/*夜间模式伪类遮罩层透明*/
+[data-theme="dark"]
+  #footer::before{
+      background: transparent!important;
+    }
+[data-theme="dark"]
+  #page-header::before{
+    background: transparent!important;
+    }
+	
+#page-header:not(.not-top-img):before
+{
+	background: transparent!important;
 }

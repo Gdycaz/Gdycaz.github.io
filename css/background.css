@@ -71,7 +71,7 @@
 
 /*页脚背景：透明色*/
 #footer {
-	background: transparent;
+	background: transparent!important;
 }
 
 /*页脚文字颜色*/
@@ -83,6 +83,7 @@
 #footer-wrap a {
     color: #000000;
 }
+
 
 /* 头图透明 */
 #page-header{
@@ -106,4 +107,33 @@
 #page-header:not(.not-top-img):before
 {
 	background: transparent!important;
+}
+
+/* 文章页背景 */
+.layout_post>#post {
+  /* 以下代表白色透明度为0.88 */
+  background: rgba(255,255,255,.88);
+}
+/* 所有背景（包括文章页、页面页等） */
+#recent-posts>.recent-post-item, .layout_page>div:first-child:not(.recent-posts), .layout_post>#page, .layout_post>#post, .read-mode .layout_post>#post{
+  /* 以下代表白色透明度为0.88 */
+  background: rgba(255,255,255,.88);
+}
+
+/*分类页面*/
+.layout>#page{
+    
+    background: rgba(255,255,255,.88);
+}
+/*时间轴页面*/
+.layout>#archive{
+    background: rgba(255,255,255,.88);
+}
+
+/*侧边栏页面透明度*/
+#aside-content>.card-widget  {
+    background: rgba(255,255,255,.7);
+}
+#aside-content>.sticky_layout>.card-widget{
+    background: rgba(255,255,255,.7);
 }

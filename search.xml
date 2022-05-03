@@ -4,6 +4,27 @@
   
     
     <entry>
+      <title>嵌入式命令</title>
+      <link href="/2022/05/02/%E5%B5%8C%E5%85%A5%E5%BC%8F%E5%91%BD%E4%BB%A4/"/>
+      <url>/2022/05/02/%E5%B5%8C%E5%85%A5%E5%BC%8F%E5%91%BD%E4%BB%A4/</url>
+      
+        <content type="html"><![CDATA[<h1 id="基本命令"><a href="#基本命令" class="headerlink" title="基本命令"></a>基本命令</h1><p><code>ifconfig</code>查看网卡</p><p><code>pwd</code>列出当前目录下的路径</p>]]></content>
+      
+      
+      
+        <tags>
+            
+            <tag> 嵌入式 </tag>
+            
+            <tag> STM32MP157 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>器件记录</title>
       <link href="/2022/04/29/%E5%99%A8%E4%BB%B6%E8%AE%B0%E5%BD%95/"/>
       <url>/2022/04/29/%E5%99%A8%E4%BB%B6%E8%AE%B0%E5%BD%95/</url>

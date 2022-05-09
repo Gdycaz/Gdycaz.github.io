@@ -4,6 +4,46 @@
   
     
     <entry>
+      <title>IIc学习笔记</title>
+      <link href="/2022/05/09/IIc%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
+      <url>/2022/05/09/IIc%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/</url>
+      
+        <content type="html"><![CDATA[<h1 id="IIC-EEPROM"><a href="#IIC-EEPROM" class="headerlink" title="IIC_EEPROM"></a>IIC_EEPROM</h1><figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="comment">//写</span></span><br><span class="line"><span class="type">void</span> <span class="title function_">AT24C02_Write</span><span class="params">(<span class="type">unsigned</span> <span class="type">int</span> addr, <span class="type">unsigned</span> <span class="type">int</span> data)</span></span><br><span class="line">&#123;</span><br><span class="line">I2CStart();</span><br><span class="line"></span><br><span class="line">I2CSendByte(<span class="number">0xA0</span>);</span><br><span class="line"><span class="keyword">while</span>(I2CWaitAck() == FAILURE);</span><br><span class="line"></span><br><span class="line">I2CSendByte(addr);</span><br><span class="line"><span class="keyword">while</span>(I2CWaitAck() == FAILURE);</span><br><span class="line"></span><br><span class="line">I2CSendByte(data);</span><br><span class="line"><span class="keyword">while</span>(I2CWaitAck() == FAILURE);</span><br><span class="line"></span><br><span class="line">I2CStop();</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//读</span></span><br><span class="line"><span class="type">unsigned</span> <span class="type">int</span> <span class="title function_">AT24C02_Read</span><span class="params">(<span class="type">unsigned</span> <span class="type">int</span> addr)</span><span class="comment">//先发，再收</span></span><br><span class="line">&#123;</span><br><span class="line"><span class="type">unsigned</span> <span class="type">int</span> data;</span><br><span class="line"></span><br><span class="line">I2CStart();</span><br><span class="line"></span><br><span class="line">I2CSendByte(<span class="number">0xA0</span>);<span class="comment">//发送读取地址</span></span><br><span class="line"><span class="keyword">while</span>(I2CWaitAck() == FAILURE);</span><br><span class="line">I2CSendByte(addr);</span><br><span class="line"><span class="keyword">while</span>(I2CWaitAck() == FAILURE);</span><br><span class="line"></span><br><span class="line">I2CStart();<span class="comment">//接收</span></span><br><span class="line">I2CSendByte(<span class="number">0xA1</span>);</span><br><span class="line"><span class="keyword">while</span>(I2CWaitAck() == FAILURE);</span><br><span class="line">data = I2CReceiveByte();</span><br><span class="line"></span><br><span class="line">I2CStop();</span><br><span class="line"></span><br><span class="line">I2CSendNotAck();</span><br><span class="line"></span><br><span class="line"><span class="keyword">return</span> data;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><h2 id="发送单字节流程："><a href="#发送单字节流程：" class="headerlink" title="发送单字节流程："></a>发送单字节流程：</h2><p><img src="https://cdn.jsdelivr.net/gh/Gdycaz/PicGo/img/image-20220509172712469.png" alt="发送流程图"></p><ol><li>启动IIC。<code>IIC_Start();</code></li><li>发送设备地址,并且等待应答。<code>IIC_Send_Byte(0xA0); while(I2CWaitAck() == FAILURE);</code></li><li>发送访问EEPROM内的地址，并且等待应答。<code>I2CSendByte(addr); while(I2CWaitAck() == FAILURE);</code></li><li>发送数据，并且等待应答。<code>I2CSendByte(data); hile(I2CWaitAck() == FAILURE);</code></li><li>停止IIC。<code>I2CStop();</code></li></ol><h2 id="接收单字节"><a href="#接收单字节" class="headerlink" title="接收单字节"></a>接收单字节</h2><p><img src="https://cdn.jsdelivr.net/gh/Gdycaz/PicGo/img/image-20220509172745749.png" alt="接收流程图"></p><ol><li><p>启动IIC，模式为发送模式。<code>I2CStart();</code></p></li><li><p>发送设备地址,并且等待应答。<code>IIC_Send_Byte(0xA0); while(I2CWaitAck() == FAILURE);</code></p></li><li><p>发送访问EEPROM内的地址，并且等待应答。<code>I2CSendByte(addr); while(I2CWaitAck() == FAILURE);</code></p></li><li><p>启动IIC，转换模式为接收模式。<code>I2CStart();</code></p></li><li><p>发送设备地址,并且等待应答。<code>IIC_Send_Byte(0xA1); while(I2CWaitAck() == FAILURE);</code></p></li><li><p>接收数据。<code>data = I2CReceiveByte();</code></p></li><li><p>不要接收应答。<code>I2CSendNotAck();</code></p></li><li><p>停止IIC。<code>I2CStop();</code></p></li></ol>]]></content>
+      
+      
+      
+        <tags>
+            
+            <tag> STM32 </tag>
+            
+            <tag> IIC </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>宽带网络实验</title>
+      <link href="/2022/05/09/%E5%AE%BD%E5%B8%A6%E7%BD%91%E7%BB%9C%E5%AE%9E%E9%AA%8C/"/>
+      <url>/2022/05/09/%E5%AE%BD%E5%B8%A6%E7%BD%91%E7%BB%9C%E5%AE%9E%E9%AA%8C/</url>
+      
+        <content type="html"><![CDATA[<h1 id="常用命令"><a href="#常用命令" class="headerlink" title="常用命令"></a>常用命令</h1><h2 id="路由器配置"><a href="#路由器配置" class="headerlink" title="路由器配置"></a>路由器配置</h2><p><code>en</code> 进入特权模式</p><p><code>conf t</code>进入端口配置</p><p><code>intface fa0/0</code>进入相应端口配置</p><p><code>ip route 192.168.1.0 255.255.255.0</code>路由配置</p><p><code>no ip route 192.168.1.0 255.255.255.0</code>取消路由配置</p><p><code>show ip route</code>显示路由器的路径</p><p><code>wr</code>保存路由器配置</p>]]></content>
+      
+      
+      
+        <tags>
+            
+            <tag> 宽带网络 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>TIM定时器外部输入配置</title>
       <link href="/2022/05/06/TIM%E5%AE%9A%E6%97%B6%E5%99%A8%E5%A4%96%E9%83%A8%E8%BE%93%E5%85%A5%E9%85%8D%E7%BD%AE/"/>
       <url>/2022/05/06/TIM%E5%AE%9A%E6%97%B6%E5%99%A8%E5%A4%96%E9%83%A8%E8%BE%93%E5%85%A5%E9%85%8D%E7%BD%AE/</url>
